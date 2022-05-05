@@ -5,7 +5,7 @@ Your habits are tied to you, not the other way around
 
 ## Date 5/5/2022
 
-### By: [Alissa Wiley](https://github.com/alissaestelle), [Dan Ventura](https://github.com/dventura221), and [Patrick Regan](https://github.com/pregan23)
+### By: [Patrick Regan](https://github.com/pregan23)
 
 [Trello](https://trello.com/b/mMRXbVPx/doknots)
 
