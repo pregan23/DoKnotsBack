@@ -1,0 +1,28 @@
+{
+  "name": "doknotsback",
+  "version": "1.0.0",
+  "description": "Your habits are tied to you, not the other way around",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pregan23/DoKnotsBack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pregan23/DoKnotsBack/issues"
+  },
+  "homepage": "https://github.com/pregan23/DoKnotsBack#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16",
+    "pg": "^8.7.3",
+    "sequelize": "^6.19.0"
+  }
+}
