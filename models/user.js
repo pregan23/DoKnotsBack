@@ -33,6 +33,12 @@ module.exports = (sequelize, DataTypes) => {
     hasLikedEntry: {
       type:DataTypes.ARRAY(DataTypes.INTEGER),
       defaultValue:[]
+    },
+
+    avatar: {
+      type: DataTypes.STRING,
+      defaultValue: 'https://cdn1.iconfinder.com/data/icons/boating-knots-1/100/eight_knot-512.png'
+
     }
 
   }, {

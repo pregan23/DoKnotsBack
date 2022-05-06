@@ -4,3 +4,5 @@ const middleware = require('../middleware')
 
 Router.post('/new', controller.Register)
 Router.post('/login', controller.Login)
+
+module.exports = Router
