@@ -40,7 +40,6 @@ Coming soon
 
 - JWT
 
-- FontAwesome
 
 
 ### **_Getting Started_**
