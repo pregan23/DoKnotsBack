@@ -25,6 +25,11 @@ module.exports = {
         type: Sequelize.ARRAY(Sequelize.INTEGER),
         defaultValue:[]
       },
+      avatar: {
+        type: Sequelize.STRING,
+        defaultValue: 'https://cdn1.iconfinder.com/data/icons/boating-knots-1/100/eight_knot-512.png'
+  
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
