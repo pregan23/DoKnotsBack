@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('users', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,10 +9,21 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
       },
-      hashedPass: {
-        type: Sequelize.STRING
+      passwordDigest: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      hasLikedStreak: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
+        defaultValue:[]
+      },
+      hasLikedEntry: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
+        defaultValue:[]
       },
       createdAt: {
         allowNull: false,
@@ -25,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('users');
   }
 };

@@ -10,15 +10,35 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      User.hasMany(models.DoKnot, {foreignKey:'userId'});
+      User.hasMany(models.Streak, {foreignKey: 'userId'});
+      User.hasMany(models.Entry, {foreignKey: 'userId'})
+
     }
   }
   User.init({
-    userName: DataTypes.STRING,
-    hashedPass: DataTypes.STRING
+    userName: {
+      type:DataTypes.STRING,
+      allowNull: false,
+        unique: true
+      },
+    passwordDigest: {
+      type:DataTypes.STRING,
+      allowNull: false,
+      },
+    hasLikedStreak: {
+      type:DataTypes.ARRAY(DataTypes.INTEGER),
+      defaultValue:[]
+    },
+    hasLikedEntry: {
+      type:DataTypes.ARRAY(DataTypes.INTEGER),
+      defaultValue:[]
+    }
+
   }, {
     sequelize,
     modelName: 'User',
+    tableName: 'users'
   });
   return User;
 };

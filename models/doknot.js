@@ -10,17 +10,36 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      DoKnot.belongsTo(models.User, {foreignKey: 'userId'});
+      DoKnot.hasMany(models.Streak, {foreignKey: 'doKnotId'})
     }
   }
   DoKnot.init({
-    habit: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
-    alternatives: DataTypes.ARRAY,
-    share: DataTypes.BOOLEAN
+    habit: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    userId: {
+      allowNull: false,
+      type:DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'users',
+        key: 'id'
+      }
+    },
+    alternatives: {
+      type:DataTypes.ARRAY(DataTypes.STRING),
+      allowNull:false
+    },
+    share: {
+      allowNull: false,
+      type: DataTypes.BOOLEAN
+    }
   }, {
     sequelize,
     modelName: 'DoKnot',
+    tableName: 'doknots'
   });
   return DoKnot;
 };

@@ -3,18 +3,17 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Streak extends Model {
+  class Entry extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Streak.belongsTo(models.User, {foreignKey: 'userId'});
-      Streak.belongsTo(models.DoKnot, {foreignKey: 'doKnotId'})
+      Entry.belongsTo(models.User, {foreignKey: 'userId'})
     }
   }
-  Streak.init({
+  Entry.init({
     userId: {
       allowNull: false,
       type:DataTypes.INTEGER,
@@ -24,26 +23,22 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       }
     },
-    doKnotId: {
-      type:DataTypes.INTEGER,
-      onDelete: 'CASCADE',
-      references: {
-        model: 'doknots',
-        key: 'id'
-      }
-    },
-    howLong: {
-      type: DataTypes.INTEGER,
-      defaultValue: 1
+    content: {
+      type: DataTypes.STRING,
+      allowNull:false
     },
     likes: {
       type: DataTypes.INTEGER,
       defaultValue: 0
-    }
+    },
+    share: {
+      type: DataTypes.BOOLEAN,
+      allowNull:false
+    },
   }, {
     sequelize,
-    modelName: 'Streak',
-    tableName: 'streaks'
+    modelName: 'Entry',
+    tableName: 'entries'
   });
-  return Streak;
+  return Entry;
 };

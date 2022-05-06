@@ -1,29 +1,30 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('doknots', {
+    await queryInterface.createTable('entries', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      habit: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
       userId: {
         allowNull: false,
-        type:Sequelize.INTEGER,
-          onDelete: 'CASCADE',
-          references: {
-            model: 'users',
-            key: 'id'
-          }
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
-      alternatives: {
-        allowNull: false,
-        type: Sequelize.ARRAY(Sequelize.STRING)
+      
+      content: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      likes: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       share: {
         allowNull: false,
@@ -40,6 +41,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('doknots');
+    await queryInterface.dropTable('entries');
   }
 };
