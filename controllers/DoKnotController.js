@@ -15,6 +15,18 @@ const AddDoKnot = async (req, res) => {
     }
 }
 
+const GetUserDoKnots = async (req, res) => {
+    try {
+        let userId = req.params.id
+        let myDoKnots = await DoKnot.findAll({
+            where:{userId}
+        })
+        res.send(myDoKnots)
+    } catch (error) {
+        throw error
+}
+}
+
 const UpdateDoKnot = async (req, res) => {
     try{
         let id = req.params.doknotid
@@ -33,5 +45,6 @@ const UpdateDoKnot = async (req, res) => {
 
 module.exports = {
     AddDoKnot,
-    UpdateDoKnot
+    UpdateDoKnot,
+    GetUserDoKnots
 }
