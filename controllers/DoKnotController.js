@@ -1,4 +1,4 @@
-const { DoKnot } = require('../models')
+const { DoKnot, Streak } = require('../models')
 const middleware = require('../middleware')
 
 const AddDoKnot = async (req, res) => {
@@ -19,7 +19,8 @@ const GetUserDoKnots = async (req, res) => {
     try {
         let userId = req.params.id
         let myDoKnots = await DoKnot.findAll({
-            where:{userId}
+            where:{userId},
+            include:Streak
         })
         res.send(myDoKnots)
     } catch (error) {
