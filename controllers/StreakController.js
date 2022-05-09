@@ -3,10 +3,11 @@ const middleware = require('../middleware')
 
 const CreateNewStreak = async (req, res) => {
     try {
+        let userId = parseInt(req.params.userid)
         let doKnotId = parseInt(req.params.doknotid)
         let streakBody = {
-            doKnotId,
-            ...req.body
+            userId,
+            doKnotId
         }
         let newStreak = await Streak.create(streakBody)
         res.send(newStreak)
