@@ -43,8 +43,25 @@ const UpdateDoKnot = async (req, res) => {
 }
 }
 
+const RemoveDoKnot = async (req, res) => {
+    try {
+        let id = req.params.doknotid
+        let userId = req.params.userid
+        let deleted = await DoKnot.destroy({
+            where: {
+                userId,
+                id
+            }
+        })
+        res.send(`deleted DoKnot with id of ${id}`)
+    }  catch (error) {
+        throw error
+}
+}
+
 module.exports = {
     AddDoKnot,
     UpdateDoKnot,
-    GetUserDoKnots
+    GetUserDoKnots,
+    RemoveDoKnot
 }

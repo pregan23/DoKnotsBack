@@ -11,5 +11,7 @@ Router.put('/:userid/update/:doknotid', middleware.stripToken,
 Router.get('/:id',                      middleware.stripToken,
                                         middleware.verifyToken,
                                         controller.GetUserDoKnots)
-
+Router.delete('/:userid/delete/:doknotid', middleware.stripToken,
+                                            middleware.verifyToken,
+                                            controller.RemoveDoKnot)
 module.exports = Router
