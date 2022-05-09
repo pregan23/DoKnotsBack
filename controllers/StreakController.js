@@ -16,6 +16,19 @@ const CreateNewStreak = async (req, res) => {
     }
 }
 
+const GetUserStreaks = async (req, res) => {
+    try {
+        let userId = req.params.userid
+        let myStreaks = await Streak.findAll({
+            where:{userId}
+        })
+        res.send(myStreaks)
+    } catch (error) {
+        throw error
+}
+}
+
 module.exports = {
-    CreateNewStreak
+    CreateNewStreak,
+    GetUserStreaks
 }
