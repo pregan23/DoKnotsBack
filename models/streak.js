@@ -39,6 +39,10 @@ module.exports = (sequelize, DataTypes) => {
     likes: {
       type: DataTypes.INTEGER,
       defaultValue: 0
+    },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     }
   }, {
     sequelize,
