@@ -15,6 +15,23 @@ const AddDoKnot = async (req, res) => {
     }
 }
 
+const UpdateDoKnot = async (req, res) => {
+    try{
+        let id = req.params.doknotid
+        let userId = req.params.userid
+        let updated = await DoKnot.update(req.body, {
+            where: { userId,
+                     id
+            }
+        }
+        )
+        res.send(updated)
+    } catch (error) {
+        throw error
+}
+}
+
 module.exports = {
-    AddDoKnot
+    AddDoKnot,
+    UpdateDoKnot
 }

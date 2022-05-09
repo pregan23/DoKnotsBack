@@ -44,8 +44,36 @@ const Register = async (req, res) => {
     console.log('we there')
   }
 
+  const UpdatePassword = async (req, res) => {
+    try {
+      let { password } = req.body
+      let id  = parseInt(req.params.id)
+      let passwordDigest = await middleware.hashPassword(password)
+      let updated = await User.update({passwordDigest}, {
+        where: { id }
+      })
+      res.send(updated)
+    } catch (error) {
+      throw error
+  }
+  }
+
+  const UpdateAvatar = async (req, res) => {
+    try {
+    let id = req.params.id
+    let updated = await User.update(req.body, {
+      where: { id }
+    })
+    res.send(updated)
+  } catch (error) {
+    throw error
+}
+}
+
   module.exports = {
       Register,
       Login,
-      CheckSession
+      CheckSession,
+      UpdatePassword,
+      UpdateAvatar
   }

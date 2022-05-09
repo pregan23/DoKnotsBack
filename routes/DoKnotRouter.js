@@ -5,5 +5,8 @@ const middleware = require('../middleware')
 Router.post('/:id/new',  middleware.stripToken,
                             middleware.verifyToken,
                             controller.AddDoKnot)
+Router.put('/:userid/update/:doknotid', middleware.stripToken,
+                                        middleware.verifyToken,
+                                        controller.UpdateDoKnot)
 
 module.exports = Router
