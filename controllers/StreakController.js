@@ -28,6 +28,7 @@ const GetUserStreaks = async (req, res) => {
 }
 }
 
+
 const UpdateStreak = async (req, res) => {
     try{
         let id = req.params.streakid
@@ -44,4 +45,5 @@ module.exports = {
     CreateNewStreak,
     GetUserStreaks,
     UpdateStreak
+
 }

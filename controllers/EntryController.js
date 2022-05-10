@@ -33,7 +33,7 @@ const EditEntry = async (req, res) => {
     try {
         let userId = req.params.userid
         let id = req.params.entryid
-        let updated = Entry.update(req.body,{
+        let updated = await Entry.update(req.body,{
             where: {
                 id,
                 userId
@@ -49,7 +49,7 @@ const DeleteEntry = async (req, res) => {
     try {
         let userId = req.params.userid
         let id = req.params.entryid
-        let deleted = Entry.destroy({
+        let deleted = await Entry.destroy({
             where: {
                 id,
                 userId
@@ -61,9 +61,22 @@ const DeleteEntry = async (req, res) => {
 }
 }
 
+const GetSharedEntries = async (req, res) => {
+    try {
+        let share = true
+        let sharedEntries = await Entry.findAll({
+            where:{share}
+        })
+        res.send(sharedEntries)
+    } catch (error) {
+        throw error
+}
+}
+
 module.exports = {
     NewEntry,
     GetUsersEntries,
     EditEntry,
-    DeleteEntry
+    DeleteEntry,
+    GetSharedEntries
 }

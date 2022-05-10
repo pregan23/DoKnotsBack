@@ -28,6 +28,19 @@ const GetUserDoKnots = async (req, res) => {
 }
 }
 
+const GetSharedDoKnots = async (req, res) => {
+    try {
+        let share = true
+        let sharedDoKnots = await DoKnot.findAll({
+            where: {share},
+            include: Streak
+        })
+        res.send(sharedDoKnots)
+    } catch (error) {
+        throw error
+}
+}
+
 const UpdateDoKnot = async (req, res) => {
     try{
         let id = req.params.doknotid
@@ -64,5 +77,6 @@ module.exports = {
     AddDoKnot,
     UpdateDoKnot,
     GetUserDoKnots,
-    RemoveDoKnot
+    RemoveDoKnot,
+    GetSharedDoKnots
 }

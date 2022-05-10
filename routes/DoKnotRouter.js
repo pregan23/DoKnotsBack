@@ -8,6 +8,7 @@ Router.post('/:id/new',                 middleware.stripToken,
 Router.put('/:userid/update/:doknotid', middleware.stripToken,
                                         middleware.verifyToken,
                                         controller.UpdateDoKnot)
+Router.get('/feed', middleware.stripToken,middleware.verifyToken,controller.GetSharedDoKnots)
 Router.get('/:id',                      middleware.stripToken,
                                         middleware.verifyToken,
                                         controller.GetUserDoKnots)
