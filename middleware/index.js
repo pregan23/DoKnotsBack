@@ -22,6 +22,7 @@ const createToken = (payload) => {
 
   const verifyToken = (req, res, next) => {
     const { token } = res.locals
+
     
     try {
         
