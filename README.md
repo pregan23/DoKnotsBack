@@ -15,11 +15,11 @@ Your habits are tied to you, not the other way around
 
 ---
 
-### **DoKnot is new way to be mindful of habits you're looking to break.  Create custom goals to better help you become the best iteration of yourself that you can be. DoKnot will provide you with custome alternative activities that help YOU keep your streak going. **
+### **DoKnot is new way to be mindful of habits you're looking to break.  Create custom goals to better help you become the best iteration of yourself that you can be. DoKnot can store custom alternatives and will provide one at random for each habit at login. Bind yourself to your goals with DoKnot. **
 
 ### **_Screenshots_**
 
-Coming soon
+[1](https://imgur.com/xOt3Xd7)
 
 
 ### **_Technologies Used_**
@@ -41,26 +41,26 @@ Coming soon
 - JWT
 
 
-
 ### **_Getting Started_**
 
-- Sign Up
+- Sign Up and Login
 
 - Add some DoKnots.  Sharing streaks is your choice.
 
-- Comment and like the streaks of others
+- Make entries to gather your thoughts and share if you choose.
+
+- Shared elements on DoKnot are not associated with your username for others.  
 
 - Be part of a community built around personal self-improvement.
 
 ### **_Future Updates_**
 
-Coming soon
+Chart/Calendar View of Streaks
 
 
 ### **_Credits_**
 
-
-
+Biggest thanks to everyone at GA but especially John and Michael
 
 
 ### **Knowledge and Knowhow**: [General Assembly](https://generalassemb.ly/), [Github](https://github.com/), [W3 Schools](https://www.w3schools.com/), [MDN](https://developer.mozilla.org/en-US/)
